@@ -40,6 +40,7 @@ public partial class PlayerController : CharacterBody2D, IPlayerControlsListener
 		DeregisterListeners();
 	}
 
+	// Changes the player input to match the InputManager event firing.
 	public void Move(Vector2 movement)
 	{
 		_inputDir = movement;
@@ -59,16 +60,21 @@ public partial class PlayerController : CharacterBody2D, IPlayerControlsListener
 		}
 	}
 
+	// Handles Interaction Inputs, which so far does nothing.
 	public void Interact() 
 	{
 		GD.Print("Interacting.");
 	}
 
+	// Handles the attack input.
 	public void Attack() 
 	{
 		GD.Print("Attacking.");
 	}
 
+	/* Moves the player in a grid based on tile size and player input direction.
+	   If the player is next to something on the last input, player can no longer move in that direction.
+	*/
 	async void MoveToNextTile()
 	{
 		_collisionDetection.TargetPosition = _inputDir * _tileSize;
@@ -98,6 +104,7 @@ public partial class PlayerController : CharacterBody2D, IPlayerControlsListener
 		_isMoving = false;
 	}
 
+	// Registers the player inputs based on th eInputManager and PlayerInputs Resource
 	void RegisterListeners()
 	{
 		_playerInputs.Movement += Move;
@@ -105,6 +112,7 @@ public partial class PlayerController : CharacterBody2D, IPlayerControlsListener
 		_playerInputs.Attack += Attack;
 	}
 
+	// Deregisters the events from RegisterListeners
 	void DeregisterListeners()
 	{
 		_playerInputs.Movement -= Move;
