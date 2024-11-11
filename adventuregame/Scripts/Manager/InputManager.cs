@@ -23,11 +23,11 @@ public partial class InputManager : Singleton<InputManager>
             _playerInputs.HandleMovement(_inputVector);
         }
 
-        if (@event.IsAction("Interact"))
+        if (@event.IsActionPressed("Interact"))
         {
             _playerInputs.HandleInteract();
         }
-        else if (@event.IsAction("Attack"))
+        else if (@event.IsActionPressed("Attack"))
         {
             _playerInputs.HandleAttack();
         }
