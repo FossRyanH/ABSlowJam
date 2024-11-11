@@ -5,6 +5,12 @@ using System.Threading.Tasks;
 public partial class PlayerController : CharacterBody2D, IPlayerControlsListener
 {
 	[Export] private PlayerInputs _playerInputs;
+	
+	#region Required Nodes
+	[Export] private RayCast2D _collisionDetection;
+	[Export] private AnimationPlayer _animationPlayer;
+	[Export] private Area2D _hitBox;
+	#endregion
 
 	private Vector2 _inputDir;
 	private Vector2 _velocity;
@@ -16,7 +22,7 @@ public partial class PlayerController : CharacterBody2D, IPlayerControlsListener
 
 	public override void _Ready()
 	{
-		_playerInputs.Movement += Move;
+		RegisterListeners();
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -25,11 +31,13 @@ public partial class PlayerController : CharacterBody2D, IPlayerControlsListener
 		{
 			MoveToNextTile();
 		}
+
+		MoveAndSlide();
 	}
 
 	public override void _ExitTree()
 	{
-		_playerInputs.Movement -= Move;
+		DeregisterListeners();
 	}
 
 	public void Move(Vector2 movement)
@@ -63,6 +71,17 @@ public partial class PlayerController : CharacterBody2D, IPlayerControlsListener
 
 	async void MoveToNextTile()
 	{
+		_collisionDetection.TargetPosition = _inputDir * _tileSize;
+		_collisionDetection.ForceRaycastUpdate();
+
+		if (_collisionDetection.IsColliding())
+		{
+			if (_collisionDetection.GetCollider() is not PlayerController)
+			{
+				return;
+			}
+		}
+		
 		_isMoving = true;
 		int delayTime = 1;
 
@@ -77,5 +96,19 @@ public partial class PlayerController : CharacterBody2D, IPlayerControlsListener
 
 		Position = targetPos;
 		_isMoving = false;
+	}
+
+	void RegisterListeners()
+	{
+		_playerInputs.Movement += Move;
+		_playerInputs.Interact += Interact;
+		_playerInputs.Attack += Attack;
+	}
+
+	void DeregisterListeners()
+	{
+		_playerInputs.Movement -= Move;
+		_playerInputs.Interact -= Interact;
+		_playerInputs.Attack -= Attack;
 	}
 }
