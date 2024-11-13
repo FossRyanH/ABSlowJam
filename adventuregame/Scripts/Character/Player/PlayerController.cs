@@ -14,6 +14,7 @@ public partial class PlayerController : CharacterBody2D, IPlayerControlsListener
 
 	private Vector2 _inputDir;
 	private Vector2 _velocity;
+	private Vector2 _lastValidInput = Vector2.Zero;
 	
 	[Export] float _moveSpeed = 300f;
 	private bool _isMoving = false;
@@ -25,13 +26,18 @@ public partial class PlayerController : CharacterBody2D, IPlayerControlsListener
 		RegisterListeners();
 	}
 
-	public override void _PhysicsProcess(double delta)
+	public override void _Process(double delta)
 	{
-		if (_inputDir != Vector2.Zero && !_isMoving)
+		if (Mathf.Abs(_inputDir.X) > 0 && Mathf.Abs(_inputDir.Y) > 0)
+		{
+			_inputDir = Vector2.Zero;
+		}
+		
+		if (!_isMoving && _inputDir != Vector2.Zero)
 		{
 			MoveToNextTile();
 		}
-
+		
 		MoveAndSlide();
 	}
 
@@ -47,17 +53,7 @@ public partial class PlayerController : CharacterBody2D, IPlayerControlsListener
 		
 		if (_isMoving) { return;}
 		
-		if (!_isMoving)
-		{
-			if (Mathf.Abs(movement.X) > Mathf.Abs(movement.Y))
-			{
-				_inputDir = new(Mathf.Sign(movement.X), 0);
-			}
-			else
-			{
-				_inputDir = new(0, Mathf.Sign(movement.Y));
-			}
-		}
+		_inputDir = new(Mathf.Sign(movement.X), Mathf.Sign(movement.Y));
 	}
 
 	// Handles Interaction Inputs, which so far does nothing.
