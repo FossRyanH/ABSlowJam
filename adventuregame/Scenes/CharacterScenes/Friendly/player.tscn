@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdwb6cntbiu7l"]
+[gd_scene load_steps=6 format=3 uid="uid://bdwb6cntbiu7l"]
 
 [ext_resource type="Script" path="res://Scripts/Character/Player/PlayerController.cs" id="1_utxof"]
 [ext_resource type="Resource" uid="uid://cgc2jf54byyi6" path="res://Scripts/Character/Player/PlayerResources/player_inputs.tres" id="2_ul64q"]
 [ext_resource type="Texture2D" uid="uid://dg3ke5cl4lo1h" path="res://icon.svg" id="3_8pwpj"]
+[ext_resource type="SpriteFrames" uid="uid://rt23lg3wb3an" path="res://Art/Sprites/Player.tres" id="3_my78y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynvoa"]
 size = Vector2(32, 32)
@@ -11,12 +12,18 @@ size = Vector2(32, 32)
 safe_margin = 1.0
 script = ExtResource("1_utxof")
 _playerInputs = ExtResource("2_ul64q")
+_moveSpeed = 150.0
 _collisionDetection = NodePath("RayCast2D")
 _animationPlayer = NodePath("AnimationPlayer")
 _hitBox = NodePath("HitBox")
-_moveSpeed = 150.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = ExtResource("3_my78y")
+animation = &"Idle Front"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_8pwpj")
 
