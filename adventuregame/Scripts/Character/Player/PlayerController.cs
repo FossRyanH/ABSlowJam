@@ -9,6 +9,7 @@ public partial class PlayerController : CharacterBody2D, IPlayerControlsListener
 	#region Required Nodes
 	[Export] private RayCast2D _collisionDetection;
 	[Export] private AnimationPlayer _animationPlayer;
+	[Export] private AnimationTree _animationTree;
 	[Export] private Area2D _hitBox;
 	#endregion
 
@@ -68,8 +69,9 @@ public partial class PlayerController : CharacterBody2D, IPlayerControlsListener
 		GD.Print("Attacking.");
 	}
 
-	/* Moves the player in a grid based on tile size and player input direction.
-	   If the player is next to something on the last input, player can no longer move in that direction.
+	/*
+		Moves the player in a grid based on tile size and player input direction.
+		If the player is next to something on the last input, player can no longer move in that direction.
 	*/
 	async void MoveToNextTile()
 	{

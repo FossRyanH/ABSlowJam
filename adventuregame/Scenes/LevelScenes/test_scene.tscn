@@ -7,6 +7,7 @@
 size = Vector2(32, 32)
 
 [node name="TestScene" type="Node2D"]
+y_sort_enabled = true
 
 [node name="TileMap Testing" type="Node2D" parent="."]
 
@@ -25,12 +26,12 @@ tile_set = ExtResource("1_i8wis")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.862447, 0.82648, 0.942954, 1)
 
-[node name="Player" parent="." instance=ExtResource("1_xgmmt")]
-position = Vector2(16, 16)
-safe_margin = 0.08
-
 [node name="Obstacle" type="StaticBody2D" parent="."]
-position = Vector2(240, 16)
+position = Vector2(144, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle"]
 shape = SubResource("RectangleShape2D_2u0hn")
+
+[node name="Player" parent="." instance=ExtResource("1_xgmmt")]
+position = Vector2(16, 16)
+safe_margin = 0.08
