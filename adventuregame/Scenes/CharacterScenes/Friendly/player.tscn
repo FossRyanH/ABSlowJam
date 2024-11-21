@@ -18,7 +18,6 @@ _animationPlayer = NodePath("AnimationPlayer")
 _hitBox = NodePath("HitBox")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
 sprite_frames = ExtResource("3_my78y")
 animation = &"Idle Front"
 
