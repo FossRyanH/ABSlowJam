@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c24bypsrgn02e"
-path="res://.godot/imported/Slime.png-b6af6eb69585b98fa3d040e78c9de23e.ctex"
+uid="uid://bg43jpml33vho"
+path="res://.godot/imported/Moth.png-c2dd655ad8464a335fb6c220e35f3b2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sprites/Slime.png"
-dest_files=["res://.godot/imported/Slime.png-b6af6eb69585b98fa3d040e78c9de23e.ctex"]
+source_file="res://Art/Sprites/Enemies/Moth.png"
+dest_files=["res://.godot/imported/Moth.png-c2dd655ad8464a335fb6c220e35f3b2b.ctex"]
 
 [params]
 

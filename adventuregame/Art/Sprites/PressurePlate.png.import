@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg43jpml33vho"
-path="res://.godot/imported/Moth.png-869b8a94d83454103d6b30dfe341d537.ctex"
+uid="uid://del3bqb5ttp6p"
+path="res://.godot/imported/PressurePlate.png-bedbce7f4e3b8418ef4f17bbb31f59a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sprites/Moth.png"
-dest_files=["res://.godot/imported/Moth.png-869b8a94d83454103d6b30dfe341d537.ctex"]
+source_file="res://Art/Sprites/PressurePlate.png"
+dest_files=["res://.godot/imported/PressurePlate.png-bedbce7f4e3b8418ef4f17bbb31f59a5.ctex"]
 
 [params]
 
