@@ -31,6 +31,10 @@ window/stretch/aspect="keep_height"
 
 project/assembly_name="AdventureGame"
 
+[gui]
+
+theme/custom_font="res://Art/UI/Fonts/fibberish.ttf"
+
 [input]
 
 MoveLeft={

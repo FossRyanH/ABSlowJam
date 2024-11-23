@@ -12,10 +12,10 @@ size = Vector2(32, 32)
 safe_margin = 1.0
 script = ExtResource("1_utxof")
 _playerInputs = ExtResource("2_ul64q")
-_moveSpeed = 150.0
 _collisionDetection = NodePath("RayCast2D")
 _animationPlayer = NodePath("AnimationPlayer")
 _hitBox = NodePath("HitBox")
+_moveSpeed = 150.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("3_my78y")

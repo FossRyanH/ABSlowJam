@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://jn85vaoumkih"]
+
+[ext_resource type="Texture2D" uid="uid://cfkfixo6uguko" path="res://Art/UI/TitleScreenBGOutline.png" id="1_lrbo6"]
+[ext_resource type="Texture2D" uid="uid://d3ebhkxjvp6l2" path="res://Art/UI/Title.png" id="2_xsuxq"]
+[ext_resource type="Texture2D" uid="uid://eiifq8nkm5rx" path="res://Art/UI/ButtonLabel.png" id="3_7603e"]
+[ext_resource type="Texture2D" uid="uid://wlowqq8dicme" path="res://Art/UI/ButtonDarkened.png" id="4_urcwo"]
+[ext_resource type="Texture2D" uid="uid://vpk1wx2wmvxa" path="res://Art/UI/ButtonHighlight.png" id="5_greot"]
+
+[node name="TitleScreen" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_lrbo6")
+stretch_mode = 2
+
+[node name="MenuShit" type="VBoxContainer" parent="Background"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 17.0
+offset_right = 410.0
+offset_bottom = 241.0
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Title" type="TextureRect" parent="Background/MenuShit"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.99
+texture = ExtResource("2_xsuxq")
+stretch_mode = 2
+
+[node name="MenuButtons" type="VBoxContainer" parent="Background/MenuShit"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="StartButton" type="TextureButton" parent="Background/MenuShit/MenuButtons"]
+layout_mode = 2
+texture_normal = ExtResource("3_7603e")
+texture_pressed = ExtResource("4_urcwo")
+texture_hover = ExtResource("5_greot")
+stretch_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background/MenuShit/MenuButtons/StartButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 9.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.388235, 0.156863, 0.0784314, 1)
+bbcode_enabled = true
+text = "[center]START[/center]"
+fit_content = true
+
+[node name="ExitButton" type="TextureButton" parent="Background/MenuShit/MenuButtons"]
+layout_mode = 2
+texture_normal = ExtResource("3_7603e")
+texture_pressed = ExtResource("4_urcwo")
+texture_hover = ExtResource("5_greot")
+stretch_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background/MenuShit/MenuButtons/ExitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 9.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.388235, 0.156863, 0.0784314, 1)
+bbcode_enabled = true
+text = "[center]EXIT[/center]"
+fit_content = true
